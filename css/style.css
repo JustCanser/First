@@ -1,0 +1,658 @@
+/* reset CSS */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, menu, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+main, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, main, menu, nav, section {
+	display: block;
+}
+/* HTML5 hidden-attribute fix for newer browsers */
+*[hidden] {
+    display: none;
+}
+body {
+	line-height: 1;
+}
+menu, ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* lato-300 - latin */
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''),
+         url('../fonts/lato-v22-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../fonts/lato-v22-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+  /* lato-regular - latin */
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''),
+         url('../fonts/lato-v22-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../fonts/lato-v22-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+  /* lato-700 - latin */
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''),
+         url('../fonts/lato-v22-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../fonts/lato-v22-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+  /* lato-900 - latin */
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 900;
+    src: local(''),
+         url('../fonts/lato-v22-latin-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../fonts/lato-v22-latin-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+
+html{
+  box-sizing: border-box;  
+}
+*, *::before, *::after{
+  box-sizing: inherit;/*наследовать от родителя бордер бокс*/
+}
+
+body{
+  font-family: 'Lato';
+  font-style: normal;
+  font-size: 16px;  
+  line-height: 1.2; /* величина пространства между строками*/
+  font-weight: normal;
+  color:black;
+}
+
+
+.wrapper{
+  max-width: 1060px; /*макс ширина контейнера*/
+  margin: 0 auto; /* выравнивание по центру*/
+
+  
+}
+
+.wrapper_full{
+  max-width: 1262px;
+  margin: 0 auto;
+  
+}
+
+.section_title{
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 42px;
+  color: #102746;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.section_title::after{
+  display: block;
+  content: '';
+  width:253px;
+  height: 3px;
+  background-color: #006DFE;
+  position: absolute;
+  bottom: 0;
+  left:0;
+}
+
+.img{
+  max-width: 100%; /*что бы изображение не превышало размеры контейнера*/
+  height: auto; /*пропорциональное сжатие по высоте*/
+}
+
+/*Header styles start*/
+
+.header{
+  position: fixed; /*фиксирование позиции шапки*/
+  top: 0;/*прибьем к верхней части*/
+  left: 0;/*по левой части*/
+  width: 100%; 
+  transition: .2s linear;
+  padding-bottom: 20px;
+  z-index: 100;
+}
+
+.header_active{
+  background: #0E1D28;
+}
+
+.header__wrapper{
+  display: flex; /*выстраивание flexbox-сетки*/
+  flex-wrap: wrap;/*перенос контента. Без указание возможно наезжание контента*/
+  align-items: flex-end; /* вертикальное выравнивание*/
+  justify-content: space-between;/*адаптивная шапка*/
+  padding-top: 56px;/*отступ сверху*/
+}
+
+.header_list{
+  display: flex; 
+  flex-wrap: wrap; /* из строчек в столбцы*/
+  
+}
+
+.header_item{
+  margin-right: 82px;/*отступы между элементами списка*/
+}
+
+.header_item:last-child{
+  margin-right: 0;
+}
+
+.header_link{
+  font-size: 18px;
+  line-height: 24px;
+  color:white;
+  text-decoration: none;
+}
+
+/*hover- изменение стилей состояние наведения, focus-изменение при навеедении
+(TABом)activer-изменение стилей, когда они активны, opacity-непрозрачность*/
+.header_link:hover,.header_link:focus, .header_link:active {
+opacity: 75%;
+}
+
+
+/*Header styles end*/
+
+/*intro styles start*/
+.intro{
+  min-height: 100vh; /*высота равная 100% высоты экрана vh*/
+  background: url(../img/intro-bg.jpg) no-repeat center ;
+  background-size: cover; /*полное покрытие блока при любых размерах*/
+  padding-top: 263px;
+  padding-bottom: 223px;
+}
+
+/*intro styles end*/
+
+.intro_title{
+  font-weight: 500;
+  font-size: 50px;
+  line-height: 60px;
+  color: white;
+  max-width: 619px;
+  margin-bottom: 22px;
+}
+
+.intro_sub_title{
+  max-width: 546px;
+  color:white;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 59px;
+}
+
+.search_form_info{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.search_form_field{
+  width: 297px;
+  /*background-color: transparent; обнуляет фон, делает прозрачным*/
+  background: transparent url(../img/svg/circle.svg) no-repeat left 6px;
+  background-size: 20px;
+  border:0;
+  border-bottom: 2px solid #BFC0C5;
+  margin-right: 60px;
+  padding-left: 43px;
+  padding-bottom: 22px;
+  font-weight: 500;
+  font-size: 18px;
+  color:white;
+}
+
+.search_form_field::placeholder{
+  color:white
+}
+
+.search_form_submit{
+  padding: 15px 39px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 24px;
+  background-color: #1B7DFF;
+  color: white;
+  border: 0;
+}
+
+.search_form_submit:hover, .search_form_submit:focus, .search_form_submit:active{
+  background: #5b84bb;;
+}
+
+/*intro styles end*/
+
+/*benefits styles start*/
+.benefints{
+  margin-bottom: 131px;
+}
+.benefits_wrap{
+  max-width: 1262px;
+  background-color: white;
+  margin: 0 auto;
+  box-shadow: 0px 2px 20px rgba(21, 24, 36, 0.15993);
+  position: relative;
+}
+.benefits_title{
+  width: 100%;
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 42px;
+  padding: 93px 100px 88px 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
+  background-color: white;
+}
+
+.benefits_cards{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 55px;
+  padding: 0 100px;
+
+}
+
+.benefits_card{
+  grid-column: span 1;
+  margin-bottom: 112px ;
+}
+
+.benefits_card-pic{
+  max-width: 66px;
+  margin-bottom: 37px;
+}
+
+.benefits_card-pic{
+  display:block;
+}
+
+.benefits_card_title{
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 26px;
+}
+
+.benefits_card-desk{
+  Width: 300px;
+  height: 72px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 39px;
+  
+}
+
+.benefits_card-more{
+  display: inline-block;
+  padding-right: 59px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #006DFE;
+  text-decoration: none;
+  background: url(../img/svg/arrow.svg) no-repeat 95% center;
+  transition: .2s all;
+}
+
+.benefits_card-more:hover, .benefits_card-more:focus, .benefits_card-more:active{
+  background: url(../img/svg/arrow.svg) no-repeat right center
+}
+/*benefits styles end*/
+
+/*places styles start*/
+
+.places{
+  margin-bottom: 131px;
+}
+
+.places_caption{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 36px;
+}
+
+.places_title{
+  margin-right: 15px;
+}
+
+.places_view-all{
+  padding-right: 59px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color:#006DFE;
+  text-decoration: none;
+  background: url(../img/svg/arrow.svg) no-repeat 100% center;
+}
+
+.places_view-all:hover, .places_view-all:focus{
+  opacity: .65;
+}
+
+.places_cards{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+
+.places_card{
+  position: relative;
+  overflow: hidden;
+}
+
+.places_card:hover .places_card-pic{
+  transform: scale(1.05);
+}
+
+.places_card::after{
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(21, 24, 36, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.places_card_title{
+  font-size: 50px;
+  line-height: 60px;
+  color: white;
+  position: absolute;
+  bottom: 27px;
+  left: 29px;
+  z-index:3 ;
+}
+
+.places_card_size_lg{
+  grid-column: span 3;
+}
+
+.places_card_size_sm{
+  grid-column: span 2;
+}
+
+.places_card-pic{
+  width: 100%;
+  transition: .15s all;
+}
+
+.places_card-pic_size-lg{
+  height: 354px; 
+  object-fit: cover; /*масштабирование внутри контейнера*/
+}
+
+.places_card-pic_size-sm{
+  width: 100%;
+  object-fit: cover;
+}
+
+.places_card_link{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+}
+
+/*places styles end*/
+
+/*Tours start*/
+.tours{
+  margin-bottom: 139px;
+}
+
+.tours_tour{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 108px;
+  align-items: center;
+  margin-bottom: 77px;
+}
+
+.tour-info{
+  padding-left: 47px;
+}
+
+.tour_title{
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 40px;
+  margin-bottom: 85px;
+}
+
+.tour_desk{
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 58px;
+}
+
+.tour_more{
+  font-size: 16px;
+  Line-height: 24px;
+  color:#006DFE;
+  text-decoration: none;
+  padding-right: 59px;
+  background: url(../img/svg/arrow.svg) no-repeat right center;
+
+}
+
+.tour_more:hover, .ptour_more:focus, .tour_more:active{
+  opacity: .65;
+}
+
+/*Tours end*/
+
+/*Top start*/
+.top{
+  margin-bottom: 86px;
+}
+
+.top_title{
+margin-bottom: 54px;
+}
+
+
+.top_card{
+  display: flex;
+  flex-direction:column; /*изменение отображения кнопки при различном количестве контента*/
+}
+
+.top_cards{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 57px;
+}
+
+.top_card_pic{
+  position: relative; /*Относительное позиционирование сдвигает элемент относительно его обычного положения.
+  (что б текст наехал на картинку)*/
+  margin-bottom: 45px;
+}
+
+.top_card_title{
+  color:white;
+  font-weight:500;
+  Size:18px;
+  Line-height:24px;
+  margin: 0 auto 0 0 ; /*верх справа снизу слева*/
+} 
+
+.top_card_likes{
+  color:white;
+  font-weight:500;
+  Size:16px;
+  Line-height:24px;
+  padding-right: 20px;
+  background: url(../img/svg/heard.svg) no-repeat right;
+  margin-right: 14px;
+}
+
+.top_card_comments{
+  color:white;
+  font-weight:500;
+  Size:16px;
+  Line-height:24px;
+  padding-right: 23px;
+  background: url(../img/svg/comment.svg) no-repeat right;
+}
+
+.top_card-stats{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(21, 24, 36, 0.6); 
+  padding: 16px 25px;
+}
+
+.top_card_desk{
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 31px;
+}
+
+.top_card_more{
+  width: 118px;
+  padding: 12px 19px;
+  background:#006DFE;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  margin: auto 0 0 0;
+}
+
+
+
+.top_card_more:hover, .top_card_more:active, .top_card_more:focus{
+  opacity: 65%;
+}
+
+/*Top end*/
+
+/*Videos*/
+
+.videos{
+  width: 100%;
+}
+
+.videos_wrapper{
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.video_item{
+  padding-top: 56.25%;
+}
+
+.element{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/*Videos end*/
+ 
+/**/
+.footer{
+  background: #0E1D28;
+  padding: 119px 0;
+}
+
+.footer_item{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.logo{
+  width: 50%;
+}
+
+.footer_nav{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 50%;
+  color:white
+}
+
+.footer_menu_title{
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color:white;
+}
+
+.footer_menu_link{
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: white;
+  text-decoration: none;
+}
+
+.footer_menu_link:hover, .footer_menu_link:focus, .footer_menu_link:active{
+  opacity: 70%;
+}
+
+/*Media start*/
+
+
+
+
+
+/*Media end*/
